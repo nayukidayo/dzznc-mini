@@ -1,0 +1,24 @@
+/* pages/login/index.wxss */
+page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+image {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  filter: grayscale(0.4) blur(4px);
+  transform: scale(1.2) translateY(30px);
+  z-index: -1;
+}
+
+.w {
+  width: 60%;
+}
+
+.f {
+  margin-top: 70%;
+  margin-bottom: 30rpx;
+}

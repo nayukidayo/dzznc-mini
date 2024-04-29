@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class="h">
+  <van-tabs color="#1989fa" bind:change="onTabChange">
+    <van-tab name="sv1" title="电磁阀（西）" />
+    <van-tab name="sv2" title="电磁阀（东）" />
+    <van-tab name="pump" title="泵房" />
+  </van-tabs>
+  <view class="k" wx:if="{{items.length !== 0}}">
+    <van-button wx:if="{{checked === items.length}}" type="info" size="small" bind:click="onAllCancelClick">取消全选</van-button>
+    <van-button wx:else type="info" size="small" bind:click="onAllClick">全选</van-button>
+    <van-tag plain type="primary" size="medium">已选择 {{checked}}</van-tag>
+    <van-tag wx:if="{{mode === 'local'}}" plain type="warning" size="medium" class="o">本地模式</van-tag>
+    <view wx:else class="o p">
+      <van-button icon="passed" type="primary" size="small" bind:click="onOpenClick">打开</van-button>
+      <van-button icon="close" type="danger" size="small" bind:click="onCloseClick">关闭</van-button>
+    </view>
+  </view>
+</view>
+<scroll-view class="m" scroll-y>
+  <van-grid custom-class="w" gutter="{{10}}" border="{{false}}" clickable catch:tap="onItemSelect">
+    <van-grid-item wx:for="{{items}}" wx:key="index" text="{{item.name}}" mark:index="{{index}}" content-class="{{item.checked ? 'd' : ''}}">
+      <block wx:if="{{tab === 'pump'}}">
+        <van-icon slot="icon" name="info-o" color="#1989fa" />
+      </block>
+      <block wx:else>
+        <van-icon slot="icon" wx:if="{{item.status === 1}}" name="passed" color="#07c160" />
+        <van-icon slot="icon" wx:else name="close" color="#ee0a24" />
+      </block>
+    </van-grid-item>
+  </van-grid>
+</scroll-view>

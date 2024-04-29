@@ -1,0 +1,6 @@
+<!--pages/login/index.wxml-->
+<image src="./bg.jpg" mode="aspectFill" />
+<view class="w">
+  <van-field placeholder="请输入员工识别码" model:value="{{auth}}" custom-class="f" />
+  <van-button block type="info" bind:click="onLogin">开始认证</van-button>
+</view>
