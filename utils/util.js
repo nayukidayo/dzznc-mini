@@ -9,7 +9,15 @@ export function merge(tab, coils, items) {
         name = `${i + 1}号棚`
         break
       case 'sv2':
-        name = `${i + 28}号棚`
+        if (i < 8) {
+          name = `${i + 28}号棚`
+          break
+        }
+        if (i === 26) {
+          name = `36号棚`
+          break
+        }
+        name = `${i + 29}号棚`
         break
       default:
         name = `${i + 1}号泵`
