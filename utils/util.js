@@ -1,4 +1,4 @@
-const origin = 'https://prod.nayuki.top/dzznc'
+const origin = 'https://dzznc.prod.nayuki.top'
 
 export function merge(tab, coils, items) {
   const flag = coils.length === items.length
